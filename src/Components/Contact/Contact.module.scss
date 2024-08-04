@@ -1,0 +1,31 @@
+.wrapper {
+  @apply flex gap-2 max-w-full bg-[#47249e] p-3 items-start rounded-xl cursor-pointer border-2 border-transparent
+     transition-all duration-300 ease-in-out relative;
+
+  &:hover {
+    @apply border-primaryHover;
+  }
+}
+.avatar {
+  @apply h-14 w-14 flex-none rounded-full bg-gray-50 border-2 border-black hover:scale-110;
+}
+
+.delete-button {
+  @apply absolute right-2 top-2 hover:scale-105 transition-all duration-300 ease-in-out hover:bg-primaryHover rounded-full hover:-rotate-180;
+}
+
+.tags-wrapper {
+  @apply flex flex-wrap gap-1 max-w-full;
+}
+
+.email-link {
+  @apply m-0 truncate text-lg hover:text-[#9877f5] w-fit;
+}
+
+.user-name {
+  @apply capitalize m-0 font-bold text-xl text-wrap max-w-[90%];
+}
+
+.tags {
+  @apply bg-gray-400 rounded-3xl px-2 text-white font-bold hover:text-black hover:bg-white transition-all duration-300 ease-in-out;
+}

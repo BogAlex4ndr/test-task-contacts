@@ -1,0 +1,7 @@
+.wrapper {
+  @apply flex flex-col md:sticky md:top-8 h-fit px-4  gap-2 md:w-4/12;
+}
+
+.form-container {
+  @apply flex bg-[#47249e] flex-col gap-2 px-5 py-4 rounded-xl;
+}

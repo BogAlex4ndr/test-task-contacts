@@ -1,0 +1,27 @@
+.text-field__label {
+  @apply font-semibold text-lg;
+  &-text {
+    @apply pl-2;
+  }
+}
+
+.text-field {
+  @apply relative;
+
+  &:focus-within .text-field__label {
+    @apply transition-all duration-300;
+    box-shadow: 5px 5px 10px black;
+  }
+}
+
+.text-field__input {
+  @apply border-transparent bg-primaryBackground focus:bg-gray-200 focus:outline-none border-2 shadow-custom shadow-primaryBackground
+ focus:border-primaryHover font-semibold text-lg transition-all duration-300 ease-in-out w-full rounded-xl text-primaryHover focus:text-black;
+}
+
+.text-field__helper-box {
+  @apply flex flex-wrap items-center justify-between;
+}
+.error-message {
+  @apply text-red text-sm font-semibold;
+}

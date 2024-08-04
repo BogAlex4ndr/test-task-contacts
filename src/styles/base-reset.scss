@@ -1,0 +1,15 @@
+html {
+  @apply bg-primaryBackground;
+}
+button {
+  @apply border-transparent;
+}
+
+ul,
+ol {
+  @apply list-none;
+}
+
+a:not([class]) {
+  @apply text-white no-underline cursor-pointer;
+}
