@@ -1,7 +1,7 @@
 .text-field__label {
   @apply font-semibold text-lg;
   &-text {
-    @apply pl-2;
+    @apply pl-2 w-fit;
   }
 }
 
@@ -15,8 +15,8 @@
 }
 
 .text-field__input {
-  @apply border-transparent bg-primaryBackground focus:bg-gray-200 focus:outline-none border-2 shadow-custom shadow-primaryBackground
- focus:border-primaryHover font-semibold text-lg transition-all duration-300 ease-in-out w-full rounded-xl text-primaryHover focus:text-black;
+  @apply border-transparent bg-primaryBackground focus:bg-gray-200 focus:outline-none border-2 shadow-md shadow-primaryBackground
+ focus:border-primaryHover font-semibold text-lg transition-all duration-300 ease-in-out w-full rounded-xl text-primaryHover focus:text-black hover:border-primaryHover;
 }
 
 .text-field__helper-box {

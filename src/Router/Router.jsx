@@ -13,23 +13,20 @@ import ErrorPage from "../Pages/ErrorPage";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-    <MainPage/>
-    ),
+    element: <MainPage />,
   },
   {
     path: "/:id",
-    element: <SingleContactPage/>,
+    element: <SingleContactPage />,
   },
   {
     path: "*",
-    element: <ErrorPage/>,
+    element: <ErrorPage />,
   },
 ]);
 
-
 const Router = () => {
-    return <RouterProvider router={router} />;
-  };
-  
-  export default Router;
+  return <RouterProvider router={router} />;
+};
+
+export default Router;

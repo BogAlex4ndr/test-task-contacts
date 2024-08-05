@@ -14,14 +14,32 @@ export const api = createApi({
   }),
   endpoints: (builder) => ({
     getContacts: builder.query({
-      query: () => '/contacts',
+      query: () => ({
+        url:'/contacts',
+        params: {
+          sort: 'created:desc',
+        },
+      }),
     }),
     getSingleContact: builder.query({
-      query: (id) => ({ url: `/contact/${id}` }),
-    })
-    // Здесь можно добавить другие эндпоинты (POST, PUT, DELETE, PATCH)
+      query: (id) => ({ url: `/contact/${id}` 
+      }),
+    }),
+    addContact: builder.mutation({
+      query: (newContact) => ({
+        url: '/contact',
+        method: 'POST',
+        body: newContact,
+      }),
+    }),
+    deleteContact: builder.mutation({
+      query: (id) => ({
+        url: `/contact/${id}`,
+        method: 'DELETE',
+      }),
+    }),
   }),
 });
 
-export const { useGetContactsQuery, useGetSingleContactQuery } = api;
+export const { useGetContactsQuery, useGetSingleContactQuery, useDeleteContactMutation, useAddContactMutation } = api;
 

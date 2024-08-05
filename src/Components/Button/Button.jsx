@@ -1,21 +1,21 @@
-import React from 'react'
-import styles from './Button.module.scss'
+import React from "react";
+import styles from "./Button.module.scss";
 
 const Button = ({
-    text,
-    isDisabled,
-    className,
-    type = 'submit' || 'reset' || 'button',
+  text,
+  isDisabled,
+  className,
+  type = "submit" | "reset" | "button",
 }) => {
   return (
-    <button 
-        disabled={isDisabled} 
-        className={`${styles['buttow-wrapper']} ${className}`} 
-        type={type}
+    <button
+      disabled={isDisabled}
+      className={`${styles["buttow-wrapper"]} ${className}`}
+      type={type}
     >
-            {text}
+      {text}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;
