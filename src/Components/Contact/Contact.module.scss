@@ -3,7 +3,7 @@
      transition-all duration-300 ease-in-out relative;
 
   &:hover {
-    @apply border-primaryHover;
+    @apply border-primaryHover shadow-sm shadow-primaryHover;
   }
 }
 .avatar {

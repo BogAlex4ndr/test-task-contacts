@@ -6,8 +6,8 @@ import {
   Route,
   Link,
 } from "react-router-dom";
-import MainPage from "../Pages/MainPage";
-import SingleContactPage from "../Pages/SingleContactPage";
+import MainPage from "../Pages/MainPage/MainPage";
+import SingleContactPage from "../Pages/SingleContactPage/SingleContactPage";
 import ErrorPage from "../Pages/ErrorPage";
 
 const router = createBrowserRouter([

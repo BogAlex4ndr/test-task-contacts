@@ -7,15 +7,13 @@ import Button from "../Button/Button";
 import styles from "./ContactsForm.module.scss";
 import { useAddContactMutation } from "../../services/api";
 import toast from "react-hot-toast";
-import { useDispatch } from "react-redux";
 
 const ContactsForm = () => {
   const [addContact] = useAddContactMutation();
-  const dispatch = useDispatch();
 
   const handleSubmit = async (values, { resetForm }) => {
     if (!values.firstName && !values.lastName) {
-      toast.error("Add first name or last name");
+      toast.error("Add first or last name");
       return;
     }
     const newContact = {
@@ -33,7 +31,7 @@ const ContactsForm = () => {
           {
             label: "first name",
             modifier: "",
-            value: values.firstName || "_",
+            value: values.firstName || " ",
             is_primary: false,
           },
         ],
@@ -41,7 +39,7 @@ const ContactsForm = () => {
           {
             label: "last name",
             modifier: "",
-            value: values.lastName || "_",
+            value: values.lastName || " ",
             is_primary: false,
           },
         ],
@@ -52,8 +50,7 @@ const ContactsForm = () => {
       },
       owner_id: null,
     };
-    await dispatch(addContact(newContact)).unwrap();
-    refetch();
+    await addContact(newContact).unwrap();
     toast.success("Contact added");
     resetForm();
   };

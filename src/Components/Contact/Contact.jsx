@@ -54,11 +54,11 @@ const Contact = ({ person }) => {
             <div className={styles["tags-wrapper"]}>{tags}</div>
           </div>
         </div>
-        </Link>
+      </Link>
       <button
         className={styles["delete-button"]}
         onClick={(event) => handleDelete(person.id, event)}
-        >
+      >
         <img src={deleteIcon} alt="Delete" />
       </button>
     </div>

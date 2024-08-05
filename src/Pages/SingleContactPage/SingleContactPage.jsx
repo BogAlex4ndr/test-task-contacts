@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import {
-  api,
-  useGetContactsQuery,
-  useGetSingleContactQuery,
-} from "../services/api";
-import { useParams } from "react-router-dom";
-import contactsJson from "../assets/contacts.json";
-import TagsForm from "../Components/TagsForm/TagsForm";
+import { useGetSingleContactQuery } from "../../services/api";
+import { Link, useParams } from "react-router-dom";
+import TagsForm from "../../Components/TagsForm/TagsForm";
+import { getFirstName, getLastName } from "../../helpers/contactCardHelpers";
+
+import homePage from "../../assets/HomePage.svg";
 
 const SingleContactPage = () => {
   const { id } = useParams();
@@ -16,12 +14,10 @@ const SingleContactPage = () => {
 
   useEffect(() => {
     data && setTags(data.resources[0].tags);
-
-    console.log(tags);
   }, [data]);
 
-  console.log(data && data.resources[0]);
-  // const data = contactsJson
+  const firstName = data && getFirstName(data.resources[0]);
+  const lastName = data && getLastName(data.resources[0]);
 
   const filterById = (data, idToFilter) => {
     return data.filter((item) => item.id === idToFilter)[0];
@@ -40,9 +36,15 @@ const SingleContactPage = () => {
   if (data) {
     return (
       <div
-        className={`flex flex-col gap-2 mx-auto max-w-md bg-[#47249e] max-h-fit mt-auto p-5 rounded-xl`}
+        className={`flex flex-col gap-2 mx-auto max-w-md bg-[#47249e] max-h-fit mt-auto p-5 rounded-xl relativel`}
       >
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 relative">
+          <Link
+            to={"/"}
+            className="absolute top-4 right-0 flex flex-col items-center"
+          >
+            <img src={homePage} className="w-12 h-12" alt="Home" />
+          </Link>
           <img
             className={`h-20 w-20 flex-none rounded-full bg-gray-50 border-2 border-black`}
             src={person.avatar_url}
@@ -51,8 +53,7 @@ const SingleContactPage = () => {
 
           <div>
             <h2 className="text-xl font-bold">
-              {person.fields["first name"][0]["value"]}{" "}
-              {person.fields["last name"][0]["value"]}
+              {firstName} {lastName}
             </h2>
             <a
               href={`mailto:${person.fields.email[0].value}`}
@@ -80,7 +81,7 @@ const SingleContactPage = () => {
           </div>
         </div>
 
-        <TagsForm />
+        <TagsForm id={id} tags={tags} />
       </div>
     );
   } else

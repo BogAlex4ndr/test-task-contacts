@@ -15,7 +15,7 @@
 }
 
 .text-field__input {
-  @apply border-transparent bg-primaryBackground focus:bg-gray-200 focus:outline-none border-2 shadow-md shadow-primaryBackground
+  @apply border-transparent bg-primaryBackground focus:bg-gray-200 focus:outline-none border-2 shadow-md shadow-black
  focus:border-primaryHover font-semibold text-lg transition-all duration-300 ease-in-out w-full rounded-xl text-primaryHover focus:text-black hover:border-primaryHover;
 }
 
