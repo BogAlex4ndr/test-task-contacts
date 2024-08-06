@@ -1,22 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       screens: {
         sm: "460px", // everything higher than 460px is considered as a tablet-sized markup
         md: "767px", // everything higher than 767px is considered as a laptop-sized markup
-
       },
       boxShadow: {
-        custom: '0px 0px 22px #152731'
+        custom: "0px 0px 22px #152731",
       },
       colors: {
         primaryBackground: "#152731",
-        primary: "#152731",
+        primary: "#ffb69d",
         primaryHover: "#E78A00",
         orange: "#FFBD5A",
         black: "#000000",
@@ -34,5 +30,4 @@ export default {
     },
   },
   plugins: [],
-}
-
+};

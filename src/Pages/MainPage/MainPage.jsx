@@ -1,6 +1,6 @@
 import React from "react";
-import ContactList from "../../Components/ContactsList/ContactList";
-import ContactsForm from "../../Components/ContactsForm/ContactsForm";
+import { ContactList } from "../../Components";
+import { ContactsForm } from "../../Components";
 
 const MainPage = () => {
   return (

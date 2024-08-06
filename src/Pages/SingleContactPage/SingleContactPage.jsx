@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useGetSingleContactQuery } from "../../services/api";
 import { Link, useParams } from "react-router-dom";
-import TagsForm from "../../Components/TagsForm/TagsForm";
+import { TagsForm, Tag } from "../../Components";
 import { getFirstName, getLastName } from "../../helpers/contactCardHelpers";
-
 import homePage from "../../assets/HomePage.svg";
+
+import styles from "./SingleContactPage.module.scss";
+import toast from "react-hot-toast";
 
 const SingleContactPage = () => {
   const { id } = useParams();
@@ -35,61 +37,50 @@ const SingleContactPage = () => {
 
   if (data) {
     return (
-      <div
-        className={`flex flex-col gap-2 mx-auto max-w-md bg-[#47249e] max-h-fit mt-auto p-5 rounded-xl relativel`}
-      >
-        <div className="flex items-center gap-3 relative">
-          <Link
-            to={"/"}
-            className="absolute top-4 right-0 flex flex-col items-center"
-          >
-            <img src={homePage} className="w-12 h-12" alt="Home" />
+      <div className={styles["wrapper"]}>
+        <div className={styles["container"]}>
+          <Link to={"/"} className={styles["back-link"]}>
+            <img src={homePage} alt="Home" />
           </Link>
           <img
-            className={`h-20 w-20 flex-none rounded-full bg-gray-50 border-2 border-black`}
+            className={styles["avatar"]}
             src={person.avatar_url}
-            alt=""
+            alt="Avatar"
           />
 
           <div>
-            <h2 className="text-xl font-bold">
+            <h1 className={styles["user-name"]}>
               {firstName} {lastName}
-            </h2>
-            <a
-              href={`mailto:${person.fields.email[0].value}`}
-              className="m-0 truncate text-lg hover:text-[#9877f5] w-fit"
+            </h1>
+            <Link
+              to={`mailto:${person.fields.email[0].value}`}
+              className={styles["email"]}
             >
               {person.fields.email[0].value}
-            </a>
+            </Link>
           </div>
         </div>
-        <div className="flex flex-col gap-2">
-          <p className="text-base font-bold">Tags</p>
-          <div className="flex flex-wrap gap-2 max-w-[100%]">
+        <div className={styles["tags-wrapper"]}>
+          <h3>Tags</h3>
+          <ul>
             {tags.length > 0 ? (
-              tags.map((item) => (
-                <p
-                  className="bg-gray-400 rounded-3xl px-2 text-white font-bold hover:text-black hover:bg-white transition-all duration-300 ease-in-out cursor-pointer"
-                  key={item.id}
-                >
-                  {item.tag}
-                </p>
-              ))
+              tags.map((item) => <Tag key={item.id} item={item} />)
             ) : (
               <p>No tags available</p>
             )}
-          </div>
+          </ul>
         </div>
 
         <TagsForm id={id} tags={tags} />
       </div>
     );
-  } else
+  } else {
     return (
       <div className="flex justify-center items-center">
         <p>Loading...</p>
       </div>
     );
+  }
 };
 
 export default SingleContactPage;

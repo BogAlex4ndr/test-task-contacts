@@ -1,0 +1,36 @@
+.wrapper {
+  @apply flex flex-col gap-2 mx-auto max-w-md bg-[#47249e] max-h-fit mt-auto p-5 rounded-xl relative;
+}
+
+.container {
+  @apply flex items-center gap-3 relative;
+}
+
+.back-link {
+  @apply absolute top-4 right-0 flex flex-col items-center;
+  & img {
+    @apply w-12 h-12 hover:scale-105;
+  }
+}
+
+.avatar {
+  @apply h-20 w-20 flex-none rounded-full bg-gray-50 border-2 border-black;
+}
+
+.user-name {
+  @apply text-xl font-bold text-primary;
+}
+
+.email {
+  @apply m-0 truncate text-lg hover:text-[#9877f5] w-fit;
+}
+
+.tags-wrapper {
+  @apply flex flex-col gap-2;
+  & h3 {
+    @apply text-base font-bold;
+  }
+  & ul {
+    @apply flex flex-wrap gap-2 max-w-[100%];
+  }
+}
