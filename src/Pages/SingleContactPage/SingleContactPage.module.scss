@@ -18,7 +18,7 @@
 }
 
 .user-name {
-  @apply text-xl font-bold text-primary;
+  @apply text-xl font-bold text-primary break-words hyphens-auto w-[270px];
 }
 
 .email {

@@ -23,7 +23,7 @@
 }
 
 .user-name {
-  @apply capitalize m-0 font-bold text-xl text-wrap max-w-[90%];
+  @apply capitalize m-0 font-bold text-xl text-wrap max-w-[75%] break-words hyphens-auto;
 }
 
 .tags {
